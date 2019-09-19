@@ -127,10 +127,10 @@ def script_exe(LDRAToolsuitePath, vvpath, sourceFilesDir, sourceFilesCommonDir, 
         
     statusBar.set("Batch file execution in progress, please wait...")
     
-    TestbedINIFileLocDir = TestbedINIFileLoc.split("\\")
-    TestbedINIFileLocDir = '\\'.join(TestbedINIFileLocDir[:-1])
+    TestbedINIFileLocPath = TestbedINIFileLoc.split("/")
+    TestbedINIFileLocPath = '/'.join(TestbedINIFileLocPath[:-1])
 
-    p = subprocess.Popen([batchFile, TestbedINIFileLocDir, LDRAToolsuitePath, vvpath, allDir], stdout = subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True)
+    p = subprocess.Popen([batchFile, TestbedINIFileLocPath, LDRAToolsuitePath, vvpath, allDir], stdout = subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True)
     stdout, stderr = p.communicate()
     
     #This makes the wait possible
